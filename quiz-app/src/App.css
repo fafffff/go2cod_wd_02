@@ -181,11 +181,14 @@ h3 {
   }
 
   .app-container {
-    padding: 30px 10px; /* Adjusted padding for smaller screens */
+    height: auto;
+    padding: 30px 10px;
+    /* Adjusted padding for smaller screens */
   }
 
   .navbar {
     flex-direction: column; /* Stack navbar items */
+    padding: 10px;
   }
 
   .nav-links {
