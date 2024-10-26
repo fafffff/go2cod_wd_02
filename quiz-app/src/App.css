@@ -17,10 +17,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 150vh;
-  padding: 100px;
+  min-height: 100vh; /* Changed from 150vh to 100vh for better responsiveness */
+  padding: 50px 20px; /* Reduced padding for smaller screens */
 }
 
+/* Header styling */
 .header {
   text-align: center;
   margin-bottom: 30px;
@@ -38,6 +39,8 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin: 5px;
+  width: 100%; /* Make buttons full width */
+  max-width: 300px; /* Limit the maximum width */
 }
 
 button:hover {
@@ -107,33 +110,30 @@ h3 {
 }
 
 /* General padding and layout for form elements */
-.form-select,
-.btn {
-  width: 100%;
-  max-width: 300px;
+.form-select {
+  width: 100%; /* Full width for select inputs */
+  max-width: 300px; /* Limit max width */
   margin: 10px auto;
 }
+
 /* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #007bff;
-  padding: 15px 30px;
+  padding: 15px 20px; /* Reduced padding for smaller screens */
   color: white;
+  flex-wrap: wrap; /* Wrap items on smaller screens */
 }
-.Navigation {
-  margin-top: 0;
-  padding-top: 10px;
-  width: 100%;
-  margin-bottom: 580px;
-}
+
 .navbar-brand {
   font-size: 1.5rem;
   color: white;
   font-weight: bold;
 }
 
+/* Navigation links styling */
 .nav-links {
   list-style: none;
   display: flex;
@@ -164,4 +164,40 @@ h3 {
 
 .footer p {
   margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem; /* Smaller heading size on smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Smaller heading size */
+  }
+
+  h3 {
+    font-size: 1.25rem; /* Smaller heading size */
+  }
+
+  .app-container {
+    padding: 30px 10px; /* Adjusted padding for smaller screens */
+  }
+
+  .navbar {
+    flex-direction: column; /* Stack navbar items */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack nav links vertically */
+    align-items: center; /* Center align links */
+  }
+
+  button {
+    max-width: 100%; /* Allow buttons to take full width */
+  }
+
+  .form-select {
+    max-width: 100%; /* Allow select inputs to take full width */
+  }
 }
