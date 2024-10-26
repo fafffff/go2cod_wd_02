@@ -11,12 +11,12 @@ function App() {
     <Router>
       <div className="app-container">
         <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/quiz" element={<Quiz />} />
-        </Routes>
-        <Footer />
       </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/quiz" element={<Quiz />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }

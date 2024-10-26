@@ -17,8 +17,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  min-height: 150vh;
+  padding: 100px;
 }
 
 .header {
@@ -68,9 +68,10 @@ a:hover {
   border: 1px solid #c3e6cb;
   border-radius: 5px;
   margin-top: 20px;
-  width: 80%;
+  width: 100%;
   max-width: 500px;
-  text-align: center;
+  text-align: justify;
+  list-style: none;
 }
 
 /* Centering content on each page */
@@ -121,7 +122,12 @@ h3 {
   padding: 15px 30px;
   color: white;
 }
-
+.Navigation {
+  margin-top: 0;
+  padding-top: 10px;
+  width: 100%;
+  margin-bottom: 580px;
+}
 .navbar-brand {
   font-size: 1.5rem;
   color: white;
@@ -138,6 +144,7 @@ h3 {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 20px;
 }
 
 .nav-links a:hover {
@@ -146,8 +153,8 @@ h3 {
 
 /* Footer styles */
 .footer {
-  background-color: #f1f1f1;
-  padding: 20px;
+  background-color: #ddd8d8;
+  padding: 40px;
   text-align: center;
   color: #555;
   position: fixed;

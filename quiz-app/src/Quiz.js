@@ -10,21 +10,122 @@ const questionsData = {
       options: ["Paris", "London", "Berlin", "Madrid"],
       answer: "Paris",
     },
+    {
+      questionText: "What is the largest planet in our solar system?",
+      options: ["Earth", "Mars", "Jupiter", "Saturn"],
+      answer: "Jupiter",
+    },
+    {
+      questionText: "Which element has the chemical symbol 'O'?",
+      options: ["Oxygen", "Gold", "Osmium", "Hydrogen"],
+      answer: "Oxygen",
+    },
+    {
+      questionText: "Which country is known as the Land of the Rising Sun?",
+      options: ["China", "Japan", "Thailand", "South Korea"],
+      answer: "Japan",
+    },
+    {
+      questionText: "Who wrote 'Romeo and Juliet'?",
+      options: [
+        "Charles Dickens",
+        "Jane Austen",
+        "William Shakespeare",
+        "Mark Twain",
+      ],
+      answer: "William Shakespeare",
+    },
+    {
+      questionText: "What is the smallest prime number?",
+      options: ["0", "1", "2", "3"],
+      answer: "2",
+    },
+    {
+      questionText: "Which ocean is the largest?",
+      options: [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean",
+      ],
+      answer: "Pacific Ocean",
+    },
+    {
+      questionText: "What year did the Titanic sink?",
+      options: ["1912", "1914", "1905", "1920"],
+      answer: "1912",
+    },
   ],
+
   "true-false": [
     {
-      questionText: "The sky is green.",
+      questionText: "The sky is blue.",
+      answer: true,
+    },
+    {
+      questionText: "Cats are mammals.",
+      answer: true,
+    },
+    {
+      questionText: "The earth is flat.",
+      answer: false,
+    },
+    {
+      questionText: "Water boils at 100 degrees Celsius.",
+      answer: true,
+    },
+    {
+      questionText: "Sharks are mammals.",
+      answer: false,
+    },
+    {
+      questionText: "There are 50 states in the USA.",
+      answer: true,
+    },
+    {
+      questionText: "Mount Everest is the tallest mountain in the world.",
+      answer: true,
+    },
+    {
+      questionText: "The Great Wall of China is visible from space.",
       answer: false,
     },
   ],
+
   matching: [
     {
       questionText: "Match the countries with their capitals.",
       options: [
         { country: "France", capital: "Paris" },
-        { country: "England", capital: "London" },
+        { country: "Japan", capital: "Tokyo" },
+        { country: "Italy", capital: "Rome" },
+        { country: "Germany", capital: "Berlin" },
+        { country: "Spain", capital: "Madrid" },
       ],
-      answers: { France: "Paris", England: "London" },
+      answers: {
+        France: "Paris",
+        Japan: "Tokyo",
+        Italy: "Rome",
+        Germany: "Berlin",
+        Spain: "Madrid",
+      },
+    },
+    {
+      questionText: "Match the scientists with their discoveries.",
+      options: [
+        { scientist: "Albert Einstein", discovery: "Theory of Relativity" },
+        { scientist: "Isaac Newton", discovery: "Laws of Motion" },
+        { scientist: "Charles Darwin", discovery: "Theory of Evolution" },
+        { scientist: "Marie Curie", discovery: "Radioactivity" },
+        { scientist: "Nikola Tesla", discovery: "Alternating Current" },
+      ],
+      answers: {
+        "Albert Einstein": "Theory of Relativity",
+        "Isaac Newton": "Laws of Motion",
+        "Charles Darwin": "Theory of Evolution",
+        "Marie Curie": "Radioactivity",
+        "Nikola Tesla": "Alternating Current",
+      },
     },
   ],
 };
@@ -80,7 +181,7 @@ function Quiz() {
   };
 
   return (
-    <div className="quiz-container container mt-5 p-4 shadow">
+    <div className="quiz-container container mt-4 p-4 shadow">
       <h2 className="mb-4">Quiz: {quizType.replace("-", " ")}</h2>
       {showScore ? (
         <div className="alert alert-success">
@@ -105,7 +206,10 @@ function Quiz() {
                 className={`btn btn-outline-primary m-2 ${
                   selectedOption === option ? "selected" : ""
                 }`}
-                onClick={() => setSelectedOption(option)}
+                onClick={() => {
+                  setSelectedOption(option);
+                  console.log("You selected:", option); // Log selected option
+                }}
               >
                 {option}
               </button>
@@ -116,7 +220,10 @@ function Quiz() {
                 className={`btn btn-outline-primary m-2 ${
                   selectedOption === true ? "selected" : ""
                 }`}
-                onClick={() => setSelectedOption(true)}
+                onClick={() => {
+                  setSelectedOption(true);
+                  console.log("You selected: True"); // Log true selection
+                }}
               >
                 True
               </button>
@@ -124,7 +231,10 @@ function Quiz() {
                 className={`btn btn-outline-primary m-2 ${
                   selectedOption === false ? "selected" : ""
                 }`}
-                onClick={() => setSelectedOption(false)}
+                onClick={() => {
+                  setSelectedOption(false);
+                  console.log("You selected: False"); // Log false selection
+                }}
               >
                 False
               </button>
@@ -159,7 +269,7 @@ function Quiz() {
               quizType === "matching"
                 ? Object.keys(matchingAnswers).length !==
                   questions[currentQuestion].options.length
-                : !selectedOption
+                : selectedOption === null // Ensure selectedOption is explicitly checked for null
             }
           >
             Next
